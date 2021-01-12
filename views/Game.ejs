@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game page</title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/game.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/matrix.css" />
+</head>
+<body>
+    <h1>Game page</h1> 
+    <div class="game-area">
+        <div class="game-board" id="game-board1"></div> 
+        <div class="hint-board" id="hint-board1"></div>
+    </div>    
+    <button class="game-button green" id="start-btn" onclick="buildMatrix('game-board1', cell, across, down, l, m, 'hint-board1');">start</button>
+       
+    <script>
+        // function createArray(length) {
+        //     var arr = new Array(length || 0),
+        //         i = length;
+
+        //     if (arguments.length > 1) {
+        //         var args = Array.prototype.slice.call(arguments, 1);
+        //         while(i--) arr[length-1 - i] = createArray.apply(this, args);
+        //     }
+
+        //     return arr;
+        // }
+        var l = <%-JSON.stringify(grid.length) %>;
+        var m = <%-JSON.stringify(grid[0].length) %>;
+        var completed = <%-JSON.stringify(completed)%>;
+        var words = <%-JSON.stringify(words)%>;
+        var grid = <%-JSON.stringify(grid)%>;
+        console.log(words);
+        // var cell = new Array(l);
+        // let cell = createArray(<%-JSON.stringify(grid.length) %>, <%-JSON.stringify(grid[0].length) %>);
+        var across = [];
+        var down = [];
+
+        var cell = [];
+        for (var i=0;i<l;i++) {
+          cell[i] = [];
+        }
+
+        console.log("cell,grid",cell,grid);
+        for(var r = 0; r < l; r++){
+            // cell[r] = new Array(m);
+            for(var c = 0; c < m; c++){
+               if(grid[r][c]==1){
+                    cell[r][c]={state:0, start:0};
+               }
+               else{
+                    cell[r][c]={state:-1, start:-1};  
+               }
+            }
+        }
+
+        for(var i = 0; i < words.length; i++){
+            var c = words[i].startIndex.x;
+            var r = words[i].startIndex.y;
+            var length = words[i].length;
+            var qno = words[i].number;
+            var orien = words[i].orientation == "across" ? 1 : 2;
+            cell[r][c].start += orien;
+            if(orien == 1){
+              across.push({number: words[i].number, orien:1, hint: words[i].clue});
+            }
+            else{
+              down.push({number: words[i].number, orien:2 , hint: words[i].clue});
+            }
+            for(var j = 0;j<length;j++ ){
+                if(orien == 1){
+                   cell[r][c+j].state += orien;
+                }
+                else{
+                   cell[r+j][c].state += orien;
+                }
+            }
+            for(var j = 0; j < length; j++){
+              if(cell[r][c].state==1 || (cell[r][c].state==3 && orien==1)){
+                cell[r][c+j].Aqno = qno;
+              }
+              else if(cell[r][c].state==2 || (cell[r][c].state==3 && orien==2)){
+                  cell[r+j][c].Dqno = qno;
+              }
+            }
+        }
+    </script> 
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

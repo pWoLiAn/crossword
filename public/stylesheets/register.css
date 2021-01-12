@@ -1,0 +1,87 @@
+@font-face {
+  font-family: "Nexa Bold";
+  src: url("/assets/fonts/Nexa Bold.otf");
+  }
+  @font-face {
+  font-family: "Nexa Light";
+  src: url("/assets/fonts/Nexa Light.otf");
+  }
+.container-outer {
+    background-color: #ffe18f;
+    border-radius: 8px;
+}
+
+.container-inner {
+    background-color: rgb(255, 249, 249);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+}
+
+.boxes {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+body {
+    /* background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/binding_dark.png"); */
+    background-image: url(/assets/bg.jpg);
+}
+
+.inputEditText {
+    width: 80%;
+    height: 2.2em;
+    font-size:1.2em;
+    background-color: rgb(240, 235, 235);
+    border-style:none;
+    border-radius:5px;
+    padding-left: 20px;
+}
+
+.inputEditText:focus{
+    border-style:solid;
+    border-width:3px;
+    border-color: #0d6380;
+}
+
+.Button{
+    width:40%;
+    height:100%;
+    margin-top: 20px;
+    background-color: #0099cc;
+    border-style:none;
+    color:white;
+    font-size:1.2em;
+    font-weight:800;
+    cursor:pointer;
+    border-radius:5px;
+    margin-bottom: 50px;
+  }
+  
+  .Button:hover{
+    background-color:#1cacdd;
+  }
+  .registerButton{
+    height:45px;
+  /*   padding-bottom:40px; */
+    margin-bottom:50px;
+    
+  }
+
+#responseText {
+  width: 90%;
+  font-size: 20px;
+  background-color: rgb(255, 249, 249);
+  border-radius: 8px;
+  vertical-align: middle;
+  margin: auto;
+  width: 90%;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+}
+

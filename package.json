@@ -1,0 +1,29 @@
+{
+  "name": "crosswordyan_21",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "server": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^7.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.0.0",
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.4.1",
+    "imap": "^0.8.19",
+    "mailgun-js": "^0.22.0",
+    "mongoose": "^5.9.13",
+    "signale": "^1.4.0",
+    "validator": "^13.0.0"
+  }
+}

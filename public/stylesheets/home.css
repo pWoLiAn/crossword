@@ -1,0 +1,67 @@
+@font-face {
+font-family: "Nexa Bold";
+src: url("/assets/fonts/Nexa Bold.otf");
+}
+@font-face {
+font-family: "Nexa Light";
+src: url("/assets/fonts/Nexa Light.otf");
+}
+body {
+	background-color: #264653;
+	text-align: center;
+	background-image: url(/assets/bg.jpg);
+}
+
+.navbar {
+	position: absolute;
+	width: 100%;
+}
+
+a {
+	color: #000;
+	font-family: 'Nexa Bold';
+}
+
+
+.h-100{
+    min-height: 100vh;
+}
+
+.title {
+	font-size: 64px;
+	font-family: 'Nexa Bold';
+}
+
+.bottom-right {
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+}
+
+head {
+	font-family: 'Nexa Light'; 
+	margin-bottom: 0 !important;
+}
+
+.content {
+	font-family: 'Nexa Light';
+	padding-top: 120px;
+	padding-bottom: 20px;
+	background-clip: content-box;
+	background-color: rgb(255, 255, 255, 0.7);
+}
+
+@media screen and (max-width: 600px){
+	img {
+		max-width: 300px !important;
+	}
+}
+
+@media screen and (max-width: 991px){
+	.logo {
+		display: none;
+	}
+	img {
+		max-width: 400px;
+	}
+}

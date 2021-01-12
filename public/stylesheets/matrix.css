@@ -1,0 +1,227 @@
+/* ***************************GENERAL GAME ASSETS******************************************************* */
+
+@import url('https://fonts.googleapis.com/css?family=Carter+One');
+@font-face {
+  font-family: "Nexa Bold";
+  src: url("/assets/fonts/Nexa Bold.otf");
+}
+@font-face {
+  font-family: "Nexa Light";
+  src: url("/assets/fonts/Nexa Light.otf");
+}
+
+body {
+  background-color: #111; 
+  text-align: center; 
+  background-image: url(/assets/bg.jpg);
+  font-family: "Nexa Light";
+}
+
+.game-button {
+  position: relative;
+  top: 0;
+  cursor: pointer;
+  text-decoration: none !important;
+  outline: none !important;
+  font-family: 'Carter One', sans-serif;
+  font-size: 20px;
+  line-height: 1.5em;
+  letter-spacing: .1em;
+  text-shadow: 2px 2px 1px #0066a2, -2px 2px 1px #0066a2, 2px -2px 1px #0066a2, -2px -2px 1px #0066a2, 0px 2px 1px #0066a2, 0px -2px 1px #0066a2, 0px 4px 1px #004a87, 2px 4px 1px #004a87, -2px 4px 1px  #004a87;
+  border: none;
+  margin: 15px 15px 30px;
+  background: repeating-linear-gradient( 45deg, #3ebbf7, #3ebbf7 5px, #45b1f4 5px, #45b1f4 10px);
+  border-bottom: 3px solid rgba(16, 91, 146, 0.5);
+  border-top: 3px solid rgba(255,255,255,.3);
+  color: #fff !important;
+  border-radius: 8px;
+  padding: 8px 15px 10px;
+  box-shadow: 0 6px 0 #266b91, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #12517d, 0 12px 0 5px #1a6b9a, 0 15px 0 5px #0c405e, 0 15px 1px 6px rgba(0,0,0,.3);
+}
+.game-button:hover {
+  top:2px;
+  box-shadow: 0 4px 0 #266b91, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #12517d, 0 10px 0 5px #1a6b9a, 0 13px 0 5px #0c405e, 0 13px 1px 6px rgba(0,0,0,.3);
+}
+.game-button::before {
+  content: '';
+  height: 10%;
+  position: absolute;
+  width: 40%;
+  background: #fff;
+  right: 13%;
+  top: -3%;
+  border-radius: 99px;
+  }
+.game-button::after {
+  content: '';
+  height: 10%;
+  position: absolute;
+  width: 5%;
+  background: #fff;
+  right: 5%;
+  top: -3%;
+  border-radius: 99px;
+  }
+
+.game-button.red {
+  background: repeating-linear-gradient( 45deg, #ff4f4c, #ff4f4c 5px, #ff4643 5px, #ff4643 10px);
+  box-shadow: 0 6px 0 #ae2725, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #831614, 0 12px 0 5px #a33634, 0 15px 0 5px #631716, 0 15px 1px 6px rgba(0,0,0,.3);
+  border-bottom: 3px solid rgba(160, 25, 23, 0.5);
+  text-shadow: 2px 2px 1px #d72d21, -2px 2px 1px #d72d21, 2px -2px 1px #d72d21, -2px -2px 1px #d72d21, 0px 2px 1px #d72d21, 0px -2px 1px #d72d21, 0px 4px 1px #930704, 2px 4px 1px #930704, -2px 4px 1px  #930704;
+}
+.game-button.red:hover {
+  top:2px;
+  box-shadow: 0 4px 0 #ae2725, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #831614, 0 10px 0 5px #a33634, 0 13px 0 5px #631716, 0 13px 1px 6px rgba(0,0,0,.3);
+}
+.game-button.green {
+  background: repeating-linear-gradient( 45deg, #54d440, #54d440 5px, #52cc3f 5px, #52cc3f 10px);
+  box-shadow: 0 6px 0 #348628, 0 8px 1px 1px rgba(0,0,0,.3), 0 10px 0 5px #2a6d20, 0 12px 0 5px #39822e, 0 15px 0 5px #1d4c16, 0 15px 1px 6px rgba(0,0,0,.3);
+  border-bottom: 3px solid rgba(40, 117, 29, 0.5);
+  text-shadow: 2px 2px 1px #348628, -2px 2px 1px #348628, 2px -2px 1px #348628, -2px -2px 1px #348628, 0px 2px 1px #348628, 0px -2px 1px #348628, 0px 4px 1px #1d4c16, 2px 4px 1px #1d4c16, -2px 4px 1px #1d4c16;
+}
+.game-button.green:hover {
+  top:2px;
+  box-shadow: 0 4px 0 #348628, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #2a6d20, 0 10px 0 5px #39822e, 0 13px 0 5px #1d4c16, 0 13px 1px 6px rgba(0,0,0,.3);
+}
+.completed{
+  background-color: #54d440 !important;
+}
+/* ************************CROSSWORD PANEL*************************************** */
+
+td{
+  padding: revert;
+}
+.crossword-board-container {
+  position: relative;
+  background: #fff;
+}
+.crossword-board {
+  position: absolute;
+  z-index: 1;
+  background: transparent;
+  border: 1px solid #000;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+}
+.crossword-board__item {
+  border: 1px solid #000;
+  background: transparent;
+  display: inline;
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.crossword-board__item:hover{
+  background-color: #5fcc49;
+  border: 1px solid #000;
+}
+.crossword-board__item:active, .crossword-board__item:focus {
+  background: #5fcc49;
+  border: 1px solid #000;
+}
+.crossword-board__item--blank {
+  background: #000;
+  border: 2px solid #000;
+}
+
+.crossword-board--highlight {
+  position: absolute;
+  /* z-index: 50; */
+}
+
+table{
+  border-spacing: 1px;
+  border-collapse: separate;
+}
+
+#game-board1 > table{
+  background-color: white;
+}
+
+/* ******************************LABEL******************************************** */
+.float-container {
+  border: solid 1px #ccc;
+  padding: 0 8px;
+  position: relative;
+}
+.float-container input {
+  border: none;
+  font-size: 16px;
+  margin: 16px 0 10px;
+  outline: 0;
+}
+label {
+  font-size: 0.6em;
+  position: absolute;
+  transform-origin: top left;
+  transform: translate(0.3em, 0.2em) scale(1);
+  transition: all .1s ease-in-out;
+  z-index:100;
+  color: #000;
+}
+.float-container.active label {
+  transform: translate(0, 4px) scale(.75);
+}
+
+
+
+/* ********************************HINT********************************************* */
+
+#hint-board1{
+  font-size: 1.0em;
+  position: relative;
+  left: 10%;
+  color: #000;
+  text-align: left;
+  display: inline-block;
+}
+
+
+.rowHint{
+  color: #000;
+  min-height: 15px;
+  margin: auto auto auto auto; 
+}
+#hint-table{
+  border-collapse: separate;
+  border-spacing: 15px;
+  max-width: 70vw;
+  font-size: 0.8em;
+  background: rgba(0,0,0,0.7);
+  border-radius: 10px;
+  color:white;
+}
+
+#hint-table th{
+  text-align: center;
+  font-family: "Nexa Bold";
+}
+
+@media screen and (max-width<768px){
+  #hint-table{
+    max-width: 95vw;
+  }
+}
+
+#hint-table td{
+  width: 50%;
+  color: white;
+}
+
+.hint-cell-hover{
+  background-color: sandybrown;
+  border-radius : 5px;
+  padding: 3px;
+  font-size: 1.2em;
+}
+
+.hint-cell{
+  border-radius: 5px;
+  font-size: 1.2em;
+}
+
+

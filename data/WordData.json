@@ -1,0 +1,158 @@
+[
+    {
+        "word": "sustainability",
+        "length": 14,
+        "orientation": "down",
+        "number": 1,
+        "clue": "Using resources responsibly",
+        "startIndex": {
+            "x": 5,
+            "y": 0
+        },
+        "gridId": 0
+    },
+    {
+        "word": "carbondioxide",
+        "length": 13,
+        "orientation": "across",
+        "number": 2,
+        "clue": "GreenHouse gas",
+        "startIndex": {
+            "x": 4,
+            "y": 4
+        },
+        "gridId": 0
+    },
+    {
+        "word": "windenergy",
+        "length": 10,
+        "orientation": "down",
+        "number": 3,
+        "clue": "Energy in temperature difference",
+        "startIndex": {
+            "x": 19,
+            "y": 4
+        },
+        "gridId": 0
+    },
+    {
+        "word": "fossilfuels",
+        "length": 11,
+        "orientation": "down",
+        "number": 4,
+        "clue": "Non-renewables",
+        "startIndex": {
+            "x": 11,
+            "y": 6
+        },
+        "gridId": 0
+    },
+    {
+        "word": "solar",
+        "length": 5,
+        "orientation": "down",
+        "number": 5,
+        "clue": "From sun",
+        "startIndex": {
+            "x": 7,
+            "y": 7
+        },
+        "gridId": 0
+    },
+    {
+        "word": "biomass",
+        "length": 7,
+        "orientation": "across",
+        "number": 6,
+        "clue": "Organic Matter",
+        "startIndex": {
+            "x": 5,
+            "y": 8
+        },
+        "gridId": 0
+    },
+    {
+        "word": "climate",
+        "length": 7,
+        "orientation": "across",
+        "number": 7,
+        "clue": "Long term pattern",
+        "startIndex": {
+            "x": 13,
+            "y": 8
+        },
+        "gridId": 0
+    },
+    {
+        "word": "combustion",
+        "length": 10,
+        "orientation": "down",
+        "number": 7,
+        "clue": "Release energy",
+        "startIndex": {
+            "x": 13,
+            "y": 8
+        },
+        "gridId": 0
+    },
+    {
+        "word": "methane",
+        "length": 7,
+        "orientation": "across",
+        "number": 8,
+        "clue": "Greenhouse Gas",
+        "startIndex": {
+            "x": 13,
+            "y": 10
+        },
+        "gridId": 0
+    },
+    {
+        "word": "energy",
+        "length": 6,
+        "orientation": "across",
+        "number": 9,
+        "clue": "Ability to do work",
+        "startIndex": {
+            "x": 0,
+            "y": 13
+        },
+        "gridId": 0
+    },
+    {
+        "word": "lead",
+        "length": 4,
+        "orientation": "down",
+        "number": 10,
+        "clue": "Metal Pollutant",
+        "startIndex": {
+            "x": 15,
+            "y": 13
+        },
+        "gridId": 0
+    },
+    {
+        "word": "weather",
+        "length": 7,
+        "orientation": "across",
+        "number": 11,
+        "clue": "Day to Day pattern",
+        "startIndex": {
+            "x": 10,
+            "y": 14
+        },
+        "gridId": 0
+    },
+    {
+        "word": "calories",
+        "length": 8,
+        "orientation": "across",
+        "number": 12,
+        "clue": "Energy unit",
+        "startIndex": {
+            "x": 4,
+            "y": 16
+        },
+        "gridId": 0
+    }
+]

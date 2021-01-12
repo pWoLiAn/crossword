@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+    <title>Login Page</title>
+</head>
+
+<body>
+    
+    <script>
+        var screenWidth = window.innerWidth;
+        var screenHeight = window.innerHeight;
+        var paddingVertical = screenHeight/2-300;
+        document.body.style.paddingTop=paddingVertical+'px';
+        document.body.style.paddingBottom=paddingVertical+'px';
+        if(screenWidth <= 768){
+            document.body.style.paddingLeft='5%';
+            document.body.style.paddingRight='5%';
+        } else {
+            document.body.style.paddingLeft='35%';
+            document.body.style.paddingRight='35%';
+        }
+    </script>
+
+        <div class="card">
+            <div class="login-container">
+                <div class="loginWidgets">
+                    <h2 class="text-login">Login</h2>
+                    <p class="text-signin-acc">Sign In to your account</p>
+                    <small class="text-signin-acc"></small>
+                    <div class="input-group mb-1">
+                        <input type="text" name="email" id="emailEt" placeholder="Email" value="" class="form-control textbox-dg">
+                    </div>
+                    <div class="input-group mb-2">
+                        <input type="password" id="passEt" name="password" placeholder="Password" value="" class="form-control textbox-dg">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="submit" value="Login" class="logn-btn" onclick="loadNext()">
+                    </div>
+                    <div class="col-12 mb-4 "> <a href="/user/forgotpassword" class="btn btn-link box-shadow-0 px-0">Forgot password?</a>
+                    </div>
+                    <div class="register mb-5 "> New here? <a href="/register" class="btn btn-link box-shadow-0 px-0">Register</a>
+                    </div>
+                    <div id="responseText"> 
+                </div>
+                </div>
+                </div>             
+                </div>
+            </div>
+        </div>
+
+    <script>
+    
+    async function loadNext() {
+    try{
+        
+        var responseBox=document.getElementById("responseText");
+        responseBox.style.backgroundColor='#141421';
+        responseBox.innerHTML="";
+
+        var email=document.getElementById("emailEt").value;
+        var password=document.getElementById("passEt").value;
+        
+        var res=await fetch(`/user/login`,{
+            method:"POST",
+            body:JSON.stringify({
+                email: email,
+                password: password
+            }),
+            headers: {
+                'Content-Type':'application/json'
+            }
+        })
+            var resp = await res.json();
+            console.log(resp);
+            console.log(res);
+        } catch(err) {
+            console.log(err);
+        }
+        
+        
+        responseBox.innerHTML+=resp.message;
+        if(res.status==200) {
+            window.location.pathname = '/user/game';
+        } else if(res.status==400) {
+            responseBox.style.backgroundColor='#EF7070';
+            responseBox.style.color='#C30000';
+        } else if(res.status==200) {
+            responseBox.style.backgroundColor='#99ff9d';
+            responseBox.style.color='#00731f';
+        } else if(res.status==500) {
+            responseBox.style.backgroundColor='#EF7070';
+            responseBox.style.color='#C30000';
+        }
+        
+        
+}
+
+    </script>
+
+</body>
+
+</html>

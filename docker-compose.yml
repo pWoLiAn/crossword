@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crossword_web
+    command: bash -c "node scripts/populate.js && npm run server"
+    ports:
+      - "8809:8081"
+    depends_on:
+      - mongo
+    restart: always
+
+  mongo:
+    image: mongo
+    container_name: crossword_db
+    ports:
+      - "27018:27017"
+    restart: always

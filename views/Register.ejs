@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/login.css" />
+    <title>register</title>
+</head>
+<body>
+
+    <script>
+        var screenWidth = window.innerWidth;
+        var screenHeight = window.innerHeight;
+        var paddingVertical = 80;
+        document.body.style.paddingTop=paddingVertical+'px';
+        document.body.style.paddingBottom=paddingVertical+'px';
+        document.body.style.textAlign='center';
+        if(screenWidth <= 880){
+            document.body.style.paddingLeft='5%';
+            document.body.style.paddingRight='5%';
+        } else {
+            document.body.style.paddingLeft='35%';
+            document.body.style.paddingRight='35%';
+        }    
+    </script>
+
+    <div class="card">
+        <div class="login-container">
+            <div class="loginWidgets">
+        <h1 class="text-login">Sign Up</h1>
+        <p class="text-signin-acc">Fill the form below to sign up</p>
+        
+        <div id="et1" class="input-group mb-1" style="margin-top: 20px;"><input id="etEmail" class="form-control textbox-dg" type="text" name="email" placeholder="Email"></div>
+        <div id="et2" class="input-group mb-2"><input id="etUname" type="text" name="username" class="form-control textbox-dg" value="" placeholder="Username"></div>
+        <div id="et3" class="input-group mb-2"><input id="etMobileNum" type="text" name="mobileNumber" class="form-control textbox-dg" value="" placeholder="Mobile Number"></div>
+        <div id="et4" class="input-group mb-2"><input id="etPassword" type="password" name="password" class="form-control textbox-dg" value="" placeholder="Password"></div>
+        <div id="et5" class="input-group mb-2"><input id="etConfirmPassword" type="password" class="form-control textbox-dg" name="confirmPassword" value="" placeholder="Confirm Password"></div>
+        <div id="et6" class="registerButton input-group mb-3"><input type="submit" value="Register" class="logn-btn" onclick="onRegisterClicked()"></div>
+        <div id="responseText">  </div>
+
+</div>
+</div>
+</div>
+
+<script>
+async function onRegisterClicked() {
+    try{
+        
+        var responseBox=document.getElementById("responseText");
+        responseBox.innerHTML="";
+        responseBox.style.backgroundColor='#141421';
+        var email=document.getElementById("etEmail").value;
+        var password=document.getElementById("etPassword").value;
+        var confirmPassword=document.getElementById("etConfirmPassword").value;
+        var username=document.getElementById("etUname").value;
+        var mobileNumber=document.getElementById("etMobileNum").value;
+        
+        var res=await fetch(`/user/register`,{
+            method:"POST",
+            body:JSON.stringify({
+                email: email,
+                password: password,
+                username: username,
+                confirmPassword: confirmPassword,
+                mobileNumber: mobileNumber
+            }),
+            headers: {
+                'Content-Type':'application/json'
+            }
+        })
+        var resp = await res.json();
+        console.log(resp.message);
+        console.log(res.status);
+        } catch(err) {
+            console.log(err);
+        }
+        
+        responseBox.innerHTML+=resp.message;
+        
+        if(res.status==400) {
+            responseBox.style.backgroundColor='#EF7070';
+            responseBox.style.color='#C30000';
+        } else if(res.status==200) {
+            responseBox.style.backgroundColor='#99ff9d';
+            responseBox.style.color='#00731f';
+        } else {
+            responseBox.style.backgroundColor='#EF7070';
+            responseBox.style.color='#C30000';
+        }
+        
+}
+</script>
+
+</body>
+</html>

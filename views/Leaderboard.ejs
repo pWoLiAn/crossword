@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/leaderboard.css" />
+    <link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+			crossorigin="anonymous"
+		/>
+    <script src="/js/leaderboard.js"></script>
+    <title>Leaderboard</title>
+</head>
+<body>
+
+    <nav
+			class="navbar navbar-expand-lg navbar-light"
+			style="background-color: rgba(0, 0, 0, 0);"
+		>
+      <a class="navbar-brand" href="/">
+        <img src="/assets/homepage.png" class="d-inline-block align-top"/>
+      </a>
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse align-items-center" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="/user/game">Game</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/rules">Rules</a>
+					</li>
+					
+        </ul>
+        <ul class="navbar-nav ml-auto align-items-center">
+          
+          <li class="nav-item">
+						<a
+							type="button"
+							class="nav-link"
+							href="/logout"
+							>Logout</a
+						>
+          </li>
+          <li>
+            <img src="/assets/main_logo_21.png" class="ml-3 logo"/>
+          </li>
+        </ul>
+			</div>
+		</nav>
+    
+    <h2>LEADERBOARD</h2>
+
+    <div class="game-leaderboard-class" id="game-leaderboard-id" style="overflow: hidden;"></div>
+    <div class="page-number-class" id="page-number-id"></div>
+
+    <script>
+
+        // number of columns, here 3.
+        var m = 3;
+        var users = <%-JSON.stringify(users)-%>;        
+        var n = users.length;
+        var listPeople = new Array(n);
+        
+        for(let i=1; i<=n; i++) {
+            listPeople[i-1]= [i, users[i-1].username, users[i-1].score];
+        }
+        
+        buildLeaderboard('game-leaderboard-id', listPeople, n, m, 0, 10,'page-number-id');
+
+    </script>
+    
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+    ></script>
+
+</body>
+</html>
